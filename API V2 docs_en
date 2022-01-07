@@ -1,4 +1,4 @@
-* [* [1\. Request rules](#1-Request rules)
+* [1\. Request rules](#1-Request rules)
     * [1\.1\. Request parameter mode convention](#11-Request parameter mode convention)
     * [1\.2\. Request header parameter](#12-Request header parameter)
     * [1\.3\. Signature rules](#13-Signature rules)
