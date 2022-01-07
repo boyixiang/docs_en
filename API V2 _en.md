@@ -1,113 +1,113 @@
-* [1\. Request rules](#1-Request rules)
-    * [1\.1\. Request parameter mode convention](#11-Request parameter mode convention)
-    * [1\.2\. Request header parameter](#12-Request header parameter)
-    * [1\.3\. Signature rules](#13-Signature rules)
+* [1. Request rules](#1-request-rules)
+    * [1\.1\. Request parameter mode convention](#11-request-parameter-mode-convention)
+    * [1\.2\. Request header parameter](#12-request-header-parameter)
+    * [1\.3\. Signature rules](#13-signature-rules)
         * [1\.3\.1\. ApiKey](#131-apikey)
-        * [1\.3\.2\. Request verification](#132-Request verification)
-        * [1\.3\.3\. Request query/request body parameter ordering](#133-request-queryrequest-bodyparameter ordering)
-        * [1\.3\.4\. Compose the final string to be calculated for signature](#134-Compose the final string to be calculated for signature)
-        * [1\.3\.5\. Time synchronization security](#135-Time synchronization security)
-        * [1\.3\.6\. JavaCode example](#136-JavaCode example)
-* [2\.Response rules](#2Response rules)
-* [3\.  Server address](#3--Server address)
-* [4\. Accounts and transactions](#4-Accounts and transactions)
-    * [4\.1 Futures account information](#41-Futures account information)
-    * [4\.2 All contract positions/single contract positions(marketId\+side filter)](#42-All contract positions/single contract positions(marketId\+side filter))
-    * [4\.3 Margin information query (the maximum amount of margin increase, the maximum amount of margin withdrawal, and the expected liquidation price)](#43-Margin information query (the maximum amount of margin increase, the maximum amount of margin withdrawal, and the expected liquidation price))
-    * [4\.4 Margin withdrawal or increase](#44-Margin withdrawal or increase)
-    * [4\.5 Leverage setting](#45-leverage setting)
-    * [4\.6 Position holding mode setting](#46-Position holding mode setting)
-    * [4\.7 Margin mode setting](#47-Margin mode setting)
-    * [4\.8 View user's current position](#48-View user's current position)
-    * [4\.9 Check user's bill](#49-Check user's bill)
-    * [4\.10 Check bill type information list](#410-Check bill type information list)
-    * [4\.11 isolated margin change histroy](#411-isolated margin change histroy)
-    * [4\.12 Position configuration information query](#412-Position configuration information query)
-    * [4\.13 Query funds through userid, currencyName](#413-Query funds through userid, currencyName)
-    * [4\.14 Automatic margin call setting](#414-Automatic margin call setting)
-    * [4\.15 Margin usage order setting](#415-Margin usage order setting)
-    * [4\.16 Fund transfer with zb](#416-Fund transfer with zb)
-* [5\. Futures trading](#5-Futures trading)
-    * [5\.1 Palce an Order](#51-place an order)
-    * [<strong>5\.2</strong> Batch order](#52-Batch order)
-    * [5\.3 Order cancel](#53-Order cancel)
-    * [5\.4 Batch cancel ](#54-Batch cancel)
-    * [5\.5 All Cancel ](#55-All Cancel)
-    * [5\.6 Query all current orders](#56-Query all current orders)
-    * [5\.7 Query all current orders(Include historical orders)](#57-Query all current orders(Include historical orders))
-    * [5\.8 Order information](#58-Order information)
-    * [5\.9 Transaction details](#59-Transaction details)
-    * [5\.10 Query historical transaction records](#510-Query historical transaction records)
-    * [5\.11 Order by Strategy](#511-Order by Strategy)
-    * [5\.12 Cancel order by Strategy](#512Cancel order by Strategy)
-    * [5\.13 order strategy query](#513-order strategy query)
-* [6\. Trading activity](#6-Trading activity)
-    * [6\.1  Purchase admission ticket/return](#61--Purchase admission ticket/return)
-* [7\. Public market：Http](#7-Public market：Http)
-    * [7\.1 Trading pair](#71-Trading pair)
-    * [7\.2 Full depth](#72-Full depth)
-    * [7\.3  Candlestick](#73--Candlestick)
-    * [7\.4 Transaction](#74-Transaction)
+        * [1\.3\.2\. Request verification](#132-request-verification)
+        * [1\.3\.3\. Request query/request body parameter ordering](#133-request-queryrequest-body-parameter-ordering)
+        * [1\.3\.4\. Compose the final string to be calculated for signature](#134-compose-the-final-string-to-be-calculated-for-signature)
+        * [1\.3\.5\. Time synchronization security](#135-time-synchronization-security)
+        * [1\.3\.6\. JavaCode example](#136-java-code-example)
+* [2\. Response rules](#2-response-rules)
+* [3\. Server address](#3-server-address)
+* [4\. Accounts and transactions](#4-accounts-and-transactions)
+    * [4\.1 Futures account information](#41-futures-account-information)
+    * [4\.2 All contract positions/single contract positions(marketId\+side filter)](#42-all-contract-positionssingle-contract-positionmarketidside-filter)
+    * [4\.3 Margin information query (the maximum amount of margin increase, the maximum amount of margin withdrawal, and the expected liquidation price)](#43-margin-information-query-the-maximum-amount-of-margin-increase-the-maximum-amount-of-margin-withdrawal-and-the-expected-liquidation-price)
+    * [4\.4 Margin withdrawal or increase](#44-margin-withdrawal-or-increase)
+    * [4\.5 Leverage setting](#45-position-leverage-setting)
+    * [4\.6 Position holding mode setting](#46-position-holding-mode-setting)
+    * [4\.7 Margin mode setting](#47-margin-mode-setting)
+    * [4\.8 View user's current position](#48-view-the-users-current-position)
+    * [4\.9 Query user bill](#49-query-user-bill)
+    * [4\.10 Query bill type information list](#410-query-bill-type-information-list)
+    * [4\.11 Isolated Margin change history](#411-isolated-margin-change-history)
+    * [4\.12 Position configuration information query](#412-position-configuration-information-query)
+    * [4\.13 Query funds through userid, currencyName](#413-query-funds-through-userid-currencyname)
+    * [4\.14 Automatic margin call setting](#414-automatic-margin-call-setting)
+    * [4\.15 Margin usage sequence setting](#415-margin-usage-sequence-setting)
+    * [4\.16 Transfer of funds with zb](#416-transfer-of-funds-with-zb)
+* [5\. Futures trading](#5-futures-trading)
+    * [5\.1 Palce an Order](#51-place-an-order)
+    * [<strong>5\.2</strong> Batch order](#52-batch-order)
+    * [5\.3 Order cancel](#53-order-cancel)
+    * [5\.4 Batch order cancel ](#54-batch-order-cancel)
+    * [5\.5 All order Cancel ](#55-all-order-cancel)
+    * [5\.6 Query all current pending orders](#56-query-all-current-pending-orders)
+    * [5\.7 Query all orders (including historical orders)](#57-query-all-orders-including-historical-orders)
+    * [5\.8 Order information](#58-order-information)
+    * [5\.9 Order transaction details](#59-order-transaction-details)
+    * [5\.10 Query historical transaction records](#510-query-historical-transaction-records)
+    * [5\.11 Order by Strategy](#511-order-by-strategy)
+    * [5\.12 Cancel order by Strategy](#512-cancel-order-by-strategy)
+    * [5\.13 Order strategy query](#513-order-strategy-query)
+* [6\. Trading activity](#6-trading-activity)
+    * [6\.1 Buy ticket](#61-buy-ticket)
+* [7\. Public market：Http](#7-public-markethttp)
+    * [7\.1 Trading pair](#71-trading-pair)
+    * [7\.2 Full depth](#72-full-depth)
+    * [7\.3  Candlestick](#73--candlestick)
+    * [7\.4 Trade](#74-trade)
     * [7\.5 Ticker](#75-ticker)
-    * [7\.6  Latest mark price](#76--Latest mark price)
-    * [7\.7  Latest index price](#77--Latest index price)
-    * [7\.8  Candlestick of mark price](#78--Candlestick of mark price)
-    * [7\.9  Candlestick of index price](#79--Candlestick of index price)
-    * [7\.10 Funding rate and next settlement time](#710-Funding rate and next settlement time)
-    * [7\.11 Latest mark price and funding rate](#711-Latest mark price and funding rate)
-    * [7\.12 Query fund rate history](#712-Query fund rate history)
-    * [7\.13 Query market liquidation orders](#713-Query market liquidation orders)
-    * [7\.14 Long/short ratio of large accounts](#714-Long/short ratio of large accounts)
-    * [7\.15 Long/short ratio of large positions](#715-Long/short ratio of large positions)
-* [8\. Public market：ws](#8-Public market ws)
+    * [7\.6 Latest mark price](#76-latest-mark-price)
+    * [7\.7 Latest index price](#77-latest-index-price)
+    * [7\.8  Mark price candlestick](#78-mark-price-candlestick)
+    * [7\.9 Index price candlestick](#79-index-price-candlestick)
+    * [7\.10 Funding rate and next settlement time](#710-funding-rate-and-next-settlement-time)
+    * [7\.11 Latest mark price and funding rate](#711-latest-mark-price-and-funding-rate)
+    * [7\.12 Query funding rate history](#712-query-funding-rate-history)
+    * [7\.13 Query market liquidation orders](#713-query-market-liquidation-orders)
+    * [7\.14 Long/short ratio of large accounts](#714-longshort-ratio-of-large-accounts)
+    * [7\.15 Long/short ratio of large positions](#715-longshort-ratio-of-large-positions)
+* [8\. Public market：ws](#8-public-marketws)
     * [8\.1 subscribe](#81-subscribe)
     * [8\.2 unsubscribe](#82-unsubscribe)
-    * [8\.3 Full depth](#83-Full depth)
-    * [8\.4 Incremental depth](#84-Incremental depth)
-    * [8\.5 Candlestick](#85-Candlestick)
-    * [8\.6 Transaction](#86-Transaction)
+    * [8\.3 Full depth](#83-full-depth)
+    * [8\.4 Increment depth](#84-increment-depth)
+    * [8\.5 Candlestick](#85-candlestick)
+    * [8\.6 Trade](#86-trade)
     * [8\.7 Ticker](#87-ticker)
-    * [8\.8 All Ticker](#88-All Ticker)
-    * [8\.9 Index price and mark price](#89-Index price and mark price)
-    * [8\.10 Index price's candlestick and mark price's candlestick](#810-Index price's candlestick and mark price's candlestick)
-    * [8\.11 Funding rate and next settlement time](#811-Funding rate and next settlement time)
+    * [8\.8 All Ticker](#88-all-ticker)
+    * [8\.9 Index price and mark price](#89-index-price-and-mark-price)
+    * [8\.10 Index price candlestick and mark price candlestick](#810-index-price-candlestick-and-mark-price-candlestick)
+    * [8\.11 Funding rate and next settlement time](#811-funding-rate-and-next-settlement-time)
     * [8\.12 Ping](#812-ping)
-* [9\. User data：ws](#9-User data ws)
-    * [9\.1 Overview](#91Overview)
+* [9\. User data：ws](#9-user-dataws)
+    * [9\.1 Overview](#91-overview)
         * [9\.1\.1 Ping](#911-ping)
-    * [9\.2 Log in](#92-Log in)
-        * [9\.2\.1Signature rules](#921Signature rules)
-    * [9\.3 Funds](#93Funds)
-        * [9\.3\.1、Funding changes](#931Funding changes)
-        * [9\.3\.2、Fund inquiry](#932Fund inquiry)
-        * [9\.3\.3、Quiry user bill](#933Quiry user bill)
-        * [9\.3\.4、Futures account details changes](#934Futures account details changes)
-        * [9\.3\.5  Quiry futures account details changes](#935--Quiry futures account details changes)
-    * [9\.4 Position](#94Position)
-        * [9\.4\.1、Position change](#941Position change)
-        * [9\.4\.2、Position query](#942Position query)
-        * [9\.4\.3、Margin information query](#943Margin information query)
-        * [9\.4\.4、Withdraw or increase margin](#944Withdraw or increase margin)
-        * [9\.4\.5、Position configuration information query](#945Position configuration information query)
-        * [9\.4\.6、Position leverage setting](#946Position leverage setting)
-        * [9\.4\.7、Position mode setting](#947Position mode setting)
-        * [9\.4\.8、Margin mode setting](#948Margin mode setting)
-        * [9\.4\.9、View the user's current position](#949View the user's current position)
-    * [9\.5Orders and transactions](#95Orders and transactions)
-        * [9\.5\.1、Order changes](#951Order changes)
-        * [9\.5\.2、Place an order](#952Place an order)
-        * [9\.5\.3、Quiry order details](#953Quiry order details)
-        * [9\.5\.4、Cancel order](#954Cancel order)
-        * [9\.5\.5、Batch cancel orders](#955Batch cancel orders)
-        * [9\.5\.6、Cancel all order](#956Cancel all order)
-        * [9\.5\.7、Query all pending orders (unfilled order list) orders)](#957Query all pending orders (unfilled order list))
-        * [9\.5\.8、Query all orders](#958Query all b orders)
-        * [9\.5\.9、Query transaction details](#959Query transaction details)
-        * [9\.5\.10、Query historical transaction records](#9510Query historical transaction records)
-        * [9\.5\.11、Batch order](#9511Batch order)
-* [10\.Error code](#10Error code)
+    * [9\.2 Login](#92-login)
+        * [9\.2\.1 Signature rules](#921-signature-rules)
+    * [9\.3 Funds](#93-funds)
+        * [9\.3\.1 Assets changes](#931-assets-changes)
+        * [9\.3\.2 Fund inquiry](#932-fund-inquiry)
+        * [9\.3\.3 Query user bill](#933-query-user-bill)
+        * [9\.3\.4 Changes in futures account details](#934-changes-in-futures-account-details)
+        * [9\.3\.5 Query the account details of futures](#935-query-the-account-details-of-futures)
+    * [9\.4 Position](#94-position)
+        * [9\.4\.1 Position changes](#941-position-changes)
+        * [9\.4\.2 Position query](#942-position-query)
+        * [9\.4\.3 Margin information query](#943-margin-information-query)
+        * [9\.4\.4 Withdraw or increase margin](#944-withdraw-or-increase-margin)
+        * [9\.4\.5 Position configuration information query](#945-position-configuration-information-query)
+        * [9\.4\.6 Position leverage setting](#946-position-leverage-setting)
+        * [9\.4\.7 Position mode setting](#947-position-mode-setting)
+        * [9\.4\.8 Position margin mode setting](#948-position-margin-mode-setting)
+        * [9\.4\.9 View the user's current position](#949-view-the-users-current-position)
+    * [9\.5 Orders and transactions](#95-orders-and-transactions)
+        * [9\.5\.1 Order changes](#951-order-changes)
+        * [9\.5\.2 Place an order](#952-place-an-order)
+        * [9\.5\.3 Query order details](#953-query-order-details)
+        * [9\.5\.4 Cancel order](#954-cancel-order)
+        * [9\.5\.5 Batch cancel orders](#955-batch-cancel-orders)
+        * [9\.5\.6 Cancel all order](#956-cancel-all-order)
+        * [9\.5\.7 Query all pending orders (unfilled order list) orders)](#957-query-all-pending-orders-unfilled-order-list)
+        * [9\.5\.8 Query all orders](#958-query-all-orders)
+        * [9\.5\.9 Query transaction details](#959-query-transaction-details)
+        * [9\.5\.10 Query historical transaction records](#9510-query-historical-transaction-records)
+        * [9\.5\.11 Batch order](#9511-batch-order)
+* [10. Error code](#10-error-code)
 
-## 1. Request rules
+## 1. Request Rules
 
 ### 1.1. Request parameter mode convention
 
@@ -365,7 +365,7 @@ public class HmacSHA256Base64Utils {
 
 
 
-## 2.Response rules
+## 2. Response rules
 
 **Response parameters**
 
@@ -406,7 +406,7 @@ public class HmacSHA256Base64Utils {
 
 
 
-## 3.  Server address
+## 3. Server address
 
 https://fapi.zb.com
 
@@ -748,7 +748,7 @@ https://fapi.zb.com
     |modifyTime     |Yes  |Long | Modify time    |
     |extend     |Yes  |String | Notes    |
 
-### 4.6 Position mode setting
+### 4.6 Position holding mode setting
 - Not yet opened, currently only supports two-way positions by default
 
 ### 4.7 Margin mode setting
@@ -2134,7 +2134,7 @@ For example：subAccount: "{\"periodId\": 1}"
 
 
 
-### 6.1   Buy ticket/re-entry
+### 6.1 Buy ticket
 
   - /Server/api/v2/activity/buyTicket
 
@@ -2354,7 +2354,7 @@ The maximum size is 1440, and the default value is 1
 
 ### 
 
-### 7.4 Deal
+### 7.4 Trade
 
   - URL: /api/public/v1/trade
 
@@ -2439,7 +2439,7 @@ The maximum size is 1440, and the default value is 1
     }
     ```
 
-### 7.6  Last mark price
+### 7.6 Latest mark price
 
   - URL: /api/public/v1/markPrice
   - Interface type: Http
@@ -2467,7 +2467,7 @@ The maximum size is 1440, and the default value is 1
     }
     ```
 
-### 7.7  Last index price
+### 7.7 Latest index price
 
   - URL: /api/public/v1/indexPrice
   - Interface Type: Http
@@ -2495,7 +2495,7 @@ The maximum size is 1440, and the default value is 1
     }
     ```
 
-### 7.8  Mark price candlestick
+### 7.8 Mark price candlestick
 
   - URL: /api/public/v1/markKline
   - Interface Type: Http
@@ -2539,7 +2539,7 @@ The maximum size is 1440, and the default value is 1
     } 
     ```
 
-###  7.9  Index price candlestick
+###  7.9 Index price candlestick
 
   - URL: /api/public/v1/indexKline
   - Interface type: Http
@@ -2611,7 +2611,7 @@ The maximum size is 1440, default value is 1
 
 
 
-### 7.11 Last mark price and funding rate
+### 7.11 Latest mark price and funding rate
 
   - URL: /Server/api/v2/premiumIndex
   - Interface type: Http
@@ -2912,7 +2912,7 @@ The maximum size is 1440, default value is 1
 
 
 
-### 7.15 Long/Short ratio of large position
+### 7.15 Long/Short ratio of large positions
 
   - URL: /Server/api/v2/data/topLongShortPositionRatio
   - Interface type: Http
@@ -2962,7 +2962,7 @@ The maximum size is 1440, default value is 1
 - URL: wss://fapi.zb.com/ws/public/v1
 - Use json encoding for request parameters
 
-### 8.1 Subscription
+### 8.1 subscribe
 
  - Request parameter:
 
@@ -3192,7 +3192,7 @@ There may be more than 2 in the full amount.
 
 ## 
 
-### 8.6 Deal
+### 8.6 Trade
 
 - Request parameter
 
@@ -3566,7 +3566,7 @@ After the connection is established, you need to log in before you can subscribe
   | :----------------- | :--- | :------ | :------------- |
   | futuresAccountType | yes   | Integer | 1:USDT Perpetual futures |
 
-#### 9.3.1、Assets changes
+#### 9.3.1 Assets changes
 
   - Changes in user funds will be pushed to customers and continue to push
 
@@ -3619,7 +3619,7 @@ After the connection is established, you need to log in before you can subscribe
 | createTime       | Long       | created time       |
 
 
-#### 9.3.2、Fund inquiry
+#### 9.3.2 Fund inquiry
 
 - Only push the current user's assets once
 
@@ -3673,7 +3673,7 @@ After the connection is established, you need to log in before you can subscribe
 
 ### 
 
-#### 9.3.3、Query user bill
+#### 9.3.3 Query user bill
 
 - Only push the current user's assets once
 
@@ -3780,7 +3780,7 @@ After the connection is established, you need to log in before you can subscribe
 | modifyTime         | no   | Long       | update timestamp         |
 | extend             | no   | String     | spare field           |
 
-#### 9.3.4、Changes in futures account details
+#### 9.3.4 Changes in futures account details
 
 - Keep pushing
 
@@ -3848,7 +3848,7 @@ After the connection is established, you need to log in before you can subscribe
 
 
 
-#### 9.3.5  Query the account details of futures
+#### 9.3.5 Query the account details of futures
 
 - Only push once
 
@@ -3911,7 +3911,7 @@ Only user position changes. Positions.change will be pushed if there is a change
   | futuresAccountType | yes   | Integer | 1:USDT Perpetual futures |
 
 
-#### 9.4.1、Position changes
+#### 9.4.1 Position changes
 
 - Changes in user positions will be pushed to customers and continue to push
 
@@ -3998,7 +3998,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 | modifyTime     | yes   | Long       | Modified time                               |
 | extend         | no   | Long       | Spare field                                |
 
-#### 9.4.2、Position query
+#### 9.4.2 Position query
 
 
 - Only push once
@@ -4092,7 +4092,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 
  
 
-#### 9.4.3、Margin information query
+#### 9.4.3 Margin information query
 
 - only push once
 
@@ -4131,7 +4131,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 }
 ```
 
-#### 9.4.4、Withdrawn or increase margin
+#### 9.4.4 Withdraw or increase margin
 
 - Only push once
 
@@ -4200,7 +4200,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 
 
 
-#### 9.4.5、Position configuration information query
+#### 9.4.5 Position configuration information query
 
 - Only push once
 
@@ -4244,7 +4244,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 }
 ```
 
-#### 9.4.6、Position leverage
+#### 9.4.6 Position leverage setting
 
 - Only push once
 
@@ -4292,7 +4292,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 
 
 
-#### 9.4.7、Position holding mode setting
+#### 9.4.7 Position mode setting
 
 - Only push once
 
@@ -4336,7 +4336,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 }
 ```
 
-#### 9.4.8、Position margin mode setting
+#### 9.4.8 Position margin mode setting
 
 - Only push once
 
@@ -4380,7 +4380,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 }
 ```
 
-#### 9.4.9、View the user’s current position
+#### 9.4.9 View the user’s current position
 
 - Only push once
 
@@ -4427,9 +4427,9 @@ Only user position changes. Positions.change will be pushed if there is a change
 | marketId              | yes   | Long       | marketid               |
 | openOrderNominalValue | yes   | BigDecimal | nominal value of order position   |
 
-### 9.5Orders and transactions
+### 9.5 Orders and transactions
 
-#### 9.5.1、Order changes
+#### 9.5.1 Order changes
 
 - Changes in user orders will be pushed to customers, and continue to push
 
@@ -4495,7 +4495,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 
 
 
-#### 9.5.2、Place an order
+#### 9.5.2 Place an order
 
 - Only push once
 
@@ -4545,7 +4545,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 | orderId   | yes   | String | orderid       |
 | orderCode | yes   | String | customizeordernumber |
 
-#### 9.5.3、query
+#### 9.5.3 Query order details
 
 - Only push once
 
@@ -4613,7 +4613,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 
   
 
-#### 9.5.4、Cancel order
+#### 9.5.4 Cancel order
 
 - Only push once
 
@@ -4649,7 +4649,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 }
 ```
 
-#### 9.5.5、Batch cancel order
+#### 9.5.5 Batch cancel orders
 
 - Only push once
 
@@ -4704,7 +4704,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 }
 ```
 
-#### 9.5.6、cancel all order
+#### 9.5.6 Cancel all order
 
 - Only push once
 
@@ -4735,7 +4735,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 }
 ```
 
-#### 9.5.7、query all pending orders (unfilled order list)
+#### 9.5.7 Query all pending orders (unfilled order list)
 
 - Only push once
 
@@ -4825,7 +4825,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 }
 ```
 
-#### 9.5.8、query all order
+#### 9.5.8 Query all orders
 
 - Only push once
 
@@ -4919,7 +4919,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 }
 ```
 
-#### 9.5.9、Check transaction details
+#### 9.5.9 Query transaction details
 
 - Only push once
 
@@ -4994,7 +4994,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 | maker       | yes   | Boolean | yesnomaker,no as taker                                        |
 | createTime  | yes   | Long    | deal time                                                   |
 
-#### 9.5.10、check Historical transaction records
+#### 9.5.10 Query Historical transaction records
 
 
 - Only push once
@@ -5065,7 +5065,7 @@ Only user position changes. Positions.change will be pushed if there is a change
 
   refer to query deal order details Response paremeter description
 
-#### 9.5.11、Batch order
+#### 9.5.11 Batch order
 
 - Only push once
 
@@ -5120,7 +5120,7 @@ Response paremeter description data：
 
 
 
-## 10.Error code
+## 10. Error code
  
 
 | Code   | description                                             |
